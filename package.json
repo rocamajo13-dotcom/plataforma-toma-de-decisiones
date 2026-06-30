@@ -1,0 +1,20 @@
+{
+  "name": "ignite-laboratorio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Plataforma web IGNITE LABORATORIO para aprendizaje, evaluacion, certificados y reportes de criterios Hurwicz y Savage.",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "ignite",
+    "laboratorio",
+    "hurwicz",
+    "savage",
+    "liderazgo",
+    "educacion"
+  ],
+  "author": "IGNITE LABORATORIO",
+  "license": "UNLICENSED"
+}
