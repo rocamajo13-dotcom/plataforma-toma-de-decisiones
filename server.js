@@ -9,7 +9,15 @@ const TYPES = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=
 const server = http.createServer((req, res) => {
   const cleanUrl = decodeURIComponent(req.url.split('?')[0]);
   const relative = cleanUrl === '/' ? '/index.html' : cleanUrl;
-  const filePath = path.normalize(path.join(ROOT, relative));
+
+const filePath = path.normalize(
+  path.join(
+    ROOT,
+    relative.startsWith('/assets/')
+      ? '/public' + relative
+      : relative
+  )
+);
   if (!filePath.startsWith(ROOT)) { res.writeHead(403); res.end('Forbidden'); return; }
   fs.readFile(filePath, (error, content) => {
     if (error) { res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' }); res.end('Archivo no encontrado'); return; }
